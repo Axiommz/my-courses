@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Cursos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      margin-bottom: 20px;
+      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 5px 0;
+      padding: 10px;
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Cursos</h1>
+  <input type="text" id="search" placeholder="Digite para buscar...">
+  <ul id="courseList">
+    <li>Curso de HTML Básico</li>
+    <li>Curso de CSS Avançado</li>
+    <li>Curso de JavaScript para Iniciantes</li>
+    <li>Curso de Python Completo</li>
+    <li>Curso de Machine Learning</li>
+  </ul>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const courseList = document.getElementById('courseList');
+    const courses = courseList.getElementsByTagName('li');
+
+    searchInput.addEventListener('input', function () {
+      const filter = searchInput.value.toLowerCase();
+      for (let course of courses) {
+        const text = course.textContent.toLowerCase();
+        course.style.display = text.includes(filter) ? '' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>
